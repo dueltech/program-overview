@@ -19,4 +19,16 @@ h2 {
   letter-spacing: 1.5px;
   font-weight: 600;
 }
+header {
+  width: 100%;
+  min-height: 450px;
+  padding: 0 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+header h2 {
+  letter-spacing: 10px;
+  font-size: 48px;
+}
 `;

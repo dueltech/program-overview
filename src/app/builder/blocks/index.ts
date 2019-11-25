@@ -1,8 +1,9 @@
-import Section from './advanced/section';
 import Paragraph from './basic/paragraph';
 import Title from './basic/title';
+import Header from './advanced/header';
+import Section from './advanced/section';
 
-const blocks = [Title, Paragraph, Section];
+const blocks = [Paragraph, Title, Header, Section];
 
 export default (editor) => {
   const blockManager = editor.BlockManager;
