@@ -11,6 +11,7 @@ const definition = {
   },
   view: {
     onRender: ({ el }) => {
+      console.log(el);
       el.style.height = '100%';
     },
   },
