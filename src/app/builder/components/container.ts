@@ -1,12 +1,13 @@
+import { getSectorProps } from '../styleManager';
+
 const definition = {
   model: {
     defaults: {
       tagName: 'div',
       draggable: false,
       droppable: true,
-      stylable: false,
       removable: false,
-      selectable: false,
+      unstylable: getSectorProps('basicText'),
     },
   },
   view: {

@@ -6,7 +6,7 @@ const definition = {
     defaults: {
       tagName: 'h2',
       name: 'Title',
-      stylable: getSectorProps('basicText'),
+      unstylable: getSectorProps('decorations'),
     },
   },
 };

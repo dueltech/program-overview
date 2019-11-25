@@ -6,7 +6,7 @@ const definition = {
   content: {
     tagName: 'header',
     draggable: '#builder-container',
-    stylable: getSectorProps('decorations'),
+    unstylable: getSectorProps('basicText'),
     components: '<h2>Main title</h2>',
   },
 };

@@ -1,11 +1,15 @@
 const sectors = [{
   id: 'basicText',
   name: 'Basic Text',
-  buildProps: ['color', 'font-size', 'font-family', 'text-align', 'line-height'],
+  buildProps: ['color', 'font-size', 'font-family', 'text-align', 'line-height', 'letter-spacing'],
 }, {
   id: 'decorations',
   name: 'Decorations',
-  buildProps: ['background-color', 'background-image'],
+  buildProps: ['background-color', 'background-image', 'border'],
+}, {
+  id: 'dimensions',
+  name: 'Dimensions',
+  buildProps: ['width', 'height', 'margin', 'padding'],
 }];
 
 export const getSectorProps = (sectorId: string) => {

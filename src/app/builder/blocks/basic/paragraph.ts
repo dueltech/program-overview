@@ -5,7 +5,7 @@ const definition = {
   category: { id: 'basic', label: 'Basic' },
   content: {
     name: 'Paragraph',
-    stylable: getSectorProps('basicText'),
+    unstylable: getSectorProps('decorations'),
     tagName: 'p',
     type: 'text',
     components: [{

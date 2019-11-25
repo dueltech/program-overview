@@ -11,7 +11,7 @@ const definition = {
   content: {
     tagName: 'section',
     draggable: '#builder-container',
-    stylable: getSectorProps('decorations'),
+    unstylable: getSectorProps('basicText'),
     components: '<h2>Section title</h2>'
   },
 };
