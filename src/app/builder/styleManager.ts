@@ -1,12 +1,10 @@
 const sectors = [{
   id: 'basicText',
   name: 'Basic Text',
-  open: false,
   buildProps: ['color', 'font-size', 'font-family', 'text-align', 'line-height'],
 }, {
   id: 'decorations',
   name: 'Decorations',
-  open: false,
   buildProps: ['background-color', 'background-image'],
 }];
 

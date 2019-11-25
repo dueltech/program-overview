@@ -45,6 +45,7 @@ export class AppComponent implements OnInit {
       },
       plugins: [componentTypes],
     });
+    this.editor.DomComponents.getWrapper().set({ badgable: false, selectable: false, hoverable: false });
     this.editor.setStyle(styles);
     addBlocks(this.editor);
   }
