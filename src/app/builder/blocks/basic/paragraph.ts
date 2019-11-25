@@ -7,6 +7,7 @@ const definition = {
     name: 'Paragraph',
     unstylable: getSectorProps('decorations'),
     tagName: 'p',
+    editable: true,
     type: 'text',
     components: [{
       type: 'textnode',

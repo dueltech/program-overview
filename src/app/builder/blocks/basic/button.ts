@@ -1,7 +1,7 @@
 const definition = {
   label: 'Button',
   category: { id: 'basic', label: 'Basic' },
-  content: '<a data-gjs-name="Button" class="button">Button text</a>',
+  content: '<a data-gjs-name="Button" gjs-editable="true" class="button">Button text</a>',
 };
 
 export default {
