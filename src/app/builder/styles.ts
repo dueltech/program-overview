@@ -31,4 +31,15 @@ header h2 {
   letter-spacing: 10px;
   font-size: 48px;
 }
+a.button {
+  display: inline-block;
+  margin: 1.5rem 0;
+  padding: 1rem 3rem;
+  background: #666;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-decoration: none;
+  font-size: 14px;
+}
 `;

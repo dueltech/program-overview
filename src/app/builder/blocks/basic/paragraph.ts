@@ -4,6 +4,7 @@ const definition = {
   label: 'Paragraph',
   category: { id: 'basic', label: 'Basic' },
   content: {
+    name: 'Paragraph',
     stylable: getSectorProps('basicText'),
     tagName: 'p',
     type: 'text',

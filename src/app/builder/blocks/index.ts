@@ -1,9 +1,10 @@
+import Button from './basic/button';
 import Paragraph from './basic/paragraph';
 import Title from './basic/title';
 import Header from './advanced/header';
 import Section from './advanced/section';
 
-const blocks = [Paragraph, Title, Header, Section];
+const blocks = [Button, Paragraph, Title, Header, Section];
 
 export default (editor) => {
   const blockManager = editor.BlockManager;
