@@ -27,6 +27,12 @@ export default [
       label: 'Styles',
       command: 'show-styles',
       togglable: false,
+    }, {
+      id: 'show-traits',
+      active: true,
+      label: 'Traits',
+      command: 'show-traits',
+      togglable: false,
     }],
   },
   {

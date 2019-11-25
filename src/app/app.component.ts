@@ -36,10 +36,13 @@ export class AppComponent implements OnInit {
       layerManager: {
         appendTo: '.layers-container',
       },
-      selectorManager: {
-        appendTo: '.styles-container',
-      },
+      // selectorManager: {
+      //   appendTo: '.styles-container',
+      // },
       styleManager,
+      traitManager: {
+        appendTo: '.traits-container',
+      },
       plugins: [componentTypes],
     });
     this.editor.setStyle(styles);
