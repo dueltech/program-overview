@@ -9,7 +9,7 @@ const sectors = [{
 }, {
   id: 'dimensions',
   name: 'Dimensions',
-  buildProps: ['width', 'height', 'margin', 'padding'],
+  buildProps: ['width', 'height', 'margin', 'padding', 'box-sizing'],
 }];
 
 export const getSectorProps = (sectorId: string) => {
