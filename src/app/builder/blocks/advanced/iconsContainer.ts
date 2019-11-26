@@ -1,17 +1,17 @@
 import { getSectorProps } from '../../styleManager';
 
 const definition = {
-  label: 'Section',
+  label: 'Icons Container',
   category: { id: 'advanced', label: 'Advanced' },
   content: {
-    tagName: 'section',
-    draggable: '#builder-container',
+    name: 'Icons Container',
+    tagName: 'div',
     unstylable: getSectorProps('basicText'),
-    components: '<h2>Section title</h2>'
+    classes: 'icons',
   },
 };
 
 export default {
-  name: 'section',
+  name: 'iconsContainer',
   definition,
 };

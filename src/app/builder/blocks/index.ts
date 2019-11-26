@@ -3,9 +3,10 @@ import Image from './basic/image';
 import Paragraph from './basic/paragraph';
 import Title from './basic/title';
 import Header from './advanced/header';
+import IconsContainer from './advanced/iconsContainer';
 import Section from './advanced/section';
 
-const blocks = [Button, Image, Paragraph, Title, Header, Section];
+const blocks = [Button, Image, Paragraph, Title, Header, IconsContainer, Section];
 
 export default (editor) => {
   const blockManager = editor.BlockManager;

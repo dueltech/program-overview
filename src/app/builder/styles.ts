@@ -46,4 +46,37 @@ a {
 img {
   max-width: 100%;
 }
+
+.icons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+  padding: 1.5rem;
+}
+.icons > * {
+  margin: 1.5rem;
+  width: 7.25rem;
+}
+@media only screen and (max-width: 750px) {
+  .icons > * {
+    margin: 1.25rem;
+  }
+}
+@media only screen and (max-width: 675px) {
+  .icons > * {
+    margin: 0.75rem;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .icons > * {
+    margin: 0.5rem;
+  }
+}
+@media only screen and (max-width: 450px) {
+  .icons > * {
+    width: 6.25rem;
+    margin: 0.25rem;
+  }
+}
 `;
