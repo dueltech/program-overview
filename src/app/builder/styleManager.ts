@@ -5,7 +5,7 @@ const sectors = [{
 }, {
   id: 'decorations',
   name: 'Decorations',
-  buildProps: ['background-color', 'background-image', 'border'],
+  buildProps: ['background-color', 'background-image', 'border', 'border-radius'],
 }, {
   id: 'dimensions',
   name: 'Dimensions',
