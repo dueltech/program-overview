@@ -43,4 +43,7 @@ a {
   text-decoration: none;
   font-size: 14px;
 }
+img {
+  max-width: 100%;
+}
 `;
