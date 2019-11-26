@@ -26,12 +26,13 @@ header {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  background-size: cover;
 }
 header h2 {
   letter-spacing: 10px;
   font-size: 48px;
 }
-a.button {
+a {
   display: inline-block;
   margin: 1.5rem 0;
   padding: 1rem 3rem;
