@@ -1,7 +1,17 @@
 const definition = {
   label: 'Button',
   category: { id: 'basic', label: 'Basic' },
-  content: '<a data-gjs-name="Button" gjs-editable="true" class="button">Button text</a>',
+  content: {
+    name: 'Button',
+    tagName: 'a',
+    type: 'link',
+    editable: true,
+    classes: 'button',
+    components: [{
+      type: 'textnode',
+      content: 'Button',
+    }],
+  },
 };
 
 export default {
