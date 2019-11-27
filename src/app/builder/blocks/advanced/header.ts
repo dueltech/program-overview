@@ -5,7 +5,7 @@ const definition = {
   category: { id: 'advanced', label: 'Advanced' },
   content: {
     tagName: 'header',
-    draggable: '#builder-container',
+    draggable: '.builder-container',
     unstylable: getSectorProps('basicText'),
     components: '<h2>Main title</h2>',
   },

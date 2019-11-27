@@ -1,5 +1,4 @@
 import { getSectorProps } from '../styleManager';
-
 const definition = {
   model: {
     defaults: {
@@ -8,6 +7,7 @@ const definition = {
       droppable: true,
       removable: false,
       unstylable: getSectorProps('basicText'),
+      classes: 'builder-container',
     },
   },
   view: {

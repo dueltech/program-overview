@@ -50,21 +50,46 @@ export default [
         label: '<u>B</u>',
         command: 'sw-visibility', // Built-in command
       }, {
-        id: 'export',
+        id: 'export-html',
         className: 'btn-open-export',
-        label: 'Exp',
+        label: 'Export (HTML)',
         command: 'export-template',
-        context: 'export-template', // For grouping context of buttons from the same panel
+        context: 'export-template',
       }, {
-        id: 'show-json',
-        className: 'btn-show-json',
-        label: 'JSON',
-        context: 'show-json',
+        id: 'export-json',
+        className: 'btn-open-export',
+        label: 'Export (JSON)',
+        context: 'export-template',
         command(editor) {
-          editor.Modal.setTitle('Components JSON')
-            .setContent(`<textarea style="width:100%; height: 250px;">
-              ${JSON.stringify(editor.getComponents())}
-            </textarea>`)
+          const exported = {
+            components: editor.getComponents(),
+            style: editor.getStyle(),
+          };
+          editor.Modal.setTitle('Export JSON')
+            .setContent(`<textarea style="width:100%; height: 250px;">${JSON.stringify(exported)}</textarea>`)
+            .open();
+        },
+      },
+      {
+        id: 'import-json',
+        className: 'btn-open-import',
+        label: 'Import',
+        context: 'import-json',
+        command(editor) {
+          const wrapper = document.createElement('div');
+          wrapper.innerHTML = '<textarea id="import-json" style="width:100%; height: 250px;"></textarea>';
+          const importButton = document.createElement('button');
+          importButton.innerText = 'Import';
+          importButton.addEventListener('click', () => {
+            const textarea = document.getElementById('import-json') as HTMLTextAreaElement;
+            const importObj = JSON.parse(textarea.value);
+            editor.setComponents(importObj.components);
+            editor.setStyle(importObj.style);
+            editor.Modal.close();
+          });
+          wrapper.appendChild(importButton);
+          editor.Modal.setTitle('Import JSON')
+            .setContent(wrapper)
             .open();
         },
       },
