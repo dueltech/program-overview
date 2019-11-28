@@ -2,6 +2,18 @@ import { addFont, Font } from './fontManager';
 
 export default [
   {
+    id: 'set-device-desktop',
+    run(editor) {
+      editor.setDevice('Desktop');
+    },
+  },
+  {
+    id: 'set-device-mobile',
+    run(editor) {
+      editor.setDevice('Mobile');
+    },
+  },
+  {
     id: 'show-layers',
     getRowEl(editor) { return editor.getContainer().closest('.editor-row'); },
     getLayersEl(row) { return row.querySelector('.layers-container'); },

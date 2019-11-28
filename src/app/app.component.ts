@@ -38,6 +38,16 @@ export class AppComponent implements OnInit {
       layerManager: {
         appendTo: '.layers-container',
       },
+      deviceManager: {
+        devices: [{
+            name: 'Desktop',
+            width: '',
+          }, {
+            name: 'Mobile',
+            width: '375px', // this value will be used on canvas width
+            widthMedia: '480px', // this value will be used in CSS @media
+        }]
+      },
       styleManager,
       traitManager: {
         appendTo: '.traits-container',
