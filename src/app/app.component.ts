@@ -20,7 +20,6 @@ export class AppComponent implements OnInit {
   editor;
 
   ngOnInit() {
-    const savedStyle = JSON.parse(localStorage.getItem('gjs-styles'));
     this.editor = grapesjs.init({
       container: '#gjs',
       components: '<div data-gjs-type="container"></div>',
@@ -55,9 +54,7 @@ export class AppComponent implements OnInit {
       plugins: [componentTypes, exportPlugin],
     });
     this.editor.DomComponents.getWrapper().set({ badgable: false, selectable: false, hoverable: false });
-    if (!savedStyle) {
-      this.editor.setStyle(styles);
-    }
+    this.editor.Canvas.getBody().insertAdjacentHTML('afterbegin', `<style>${styles}</style>`);
     addBlocks(this.editor);
     loadFonts(this.editor);
   }

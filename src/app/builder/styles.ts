@@ -10,6 +10,7 @@ section {
   align-items: center;
   padding: 3rem 1rem;
   background-size: cover;
+  background-position: center;
 }
 h2 {
   margin: 0;
@@ -27,6 +28,7 @@ header {
   flex-direction: column;
   justify-content: center;
   background-size: cover;
+  background-position: center;
 }
 header h2 {
   letter-spacing: 10px;

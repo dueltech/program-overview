@@ -1,4 +1,5 @@
 import plugin from 'grapesjs-plugin-export';
+import styles from './styles';
 import { getFontImports } from './fontManager';
 
 const html = (body: string) => `
@@ -19,7 +20,7 @@ const options = {
   filename: () => 'program-overview.zip',
   root: {
     css: {
-      'style.css': ed => getFontImports() + ed.getCss(),
+      'style.css': ed => getFontImports() + styles + ed.getCss(),
     },
     'index.html': ed => html(ed.getHtml()),
   }
