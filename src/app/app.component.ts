@@ -23,7 +23,7 @@ export class AppComponent implements OnInit {
     const savedStyle = JSON.parse(localStorage.getItem('gjs-styles'));
     this.editor = grapesjs.init({
       container: '#gjs',
-      fromElement: true,
+      components: '<div data-gjs-type="container"></div>',
       height: '100%',
       width: 'auto',
       panels: {
@@ -38,9 +38,6 @@ export class AppComponent implements OnInit {
       layerManager: {
         appendTo: '.layers-container',
       },
-      // selectorManager: {
-      //   appendTo: '.styles-container',
-      // },
       styleManager,
       traitManager: {
         appendTo: '.traits-container',
@@ -53,7 +50,5 @@ export class AppComponent implements OnInit {
     }
     addBlocks(this.editor);
     loadFonts(this.editor);
-    // const link = '<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">';
-    // this.editor.Canvas.getDocument().head.insertAdjacentHTML('beforeend', link);
   }
 }

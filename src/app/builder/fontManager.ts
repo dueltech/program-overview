@@ -16,7 +16,7 @@ function removeFont(fontName: string) {
   localStorage.setItem(LOCALSTORAGE_TAG, JSON.stringify(updatedFonts));
 }
 
-function resetFonts(editor) {
+export function resetFonts(editor) {
   const fonts = getFonts();
   editor.Canvas.getDocument().head.innerHTML = '';
   fonts.forEach(font => removeFont(font.name));

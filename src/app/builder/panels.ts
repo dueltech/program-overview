@@ -1,4 +1,5 @@
-import { getFonts, setFonts } from './fontManager';
+import { getFonts, setFonts, resetFonts } from './fontManager';
+import styles from './styles';
 
 export default [
   {
@@ -103,6 +104,18 @@ export default [
             .open();
         },
       },
+      {
+        id: 'clear-canvas',
+        className: 'clear-canvas',
+        label: 'Clear Canvas',
+        context: 'clear-canvas',
+        command(editor) {
+          editor.Commands.run('core:canvas-clear');
+          resetFonts(editor);
+          editor.setComponents(editor.getConfig().components);
+          editor.setStyle(styles);
+        }
+      }
     ],
   }
 ];
