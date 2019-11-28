@@ -54,11 +54,20 @@ img {
   justify-content: center;
   flex-wrap: wrap;
   width: 100%;
-  padding: 1.5rem;
+  padding: 1.5rem 0;
 }
 .icons > * {
   margin: 1.5rem;
   width: 7.25rem;
+}
+@media only screen and (max-width: 600px) {
+  .icons[mobile-2] {
+    justify-content: space-around;
+  }
+  .icons[mobile-2] > div {
+    margin-right: 5%;
+    margin-left: 5%;
+  }
 }
 @media only screen and (max-width: 750px) {
   .icons > * {

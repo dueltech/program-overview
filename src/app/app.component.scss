@@ -11,6 +11,14 @@
   position: initial !important;
 }
 
+.gjs-label-wrp {
+  width: auto;
+  padding-right: 0.5rem;
+}
+.gjs-field-wrp--text {
+  min-width: 65%;
+}
+
 .gjs-block {
   width: auto;
   height: auto;

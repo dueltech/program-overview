@@ -1,23 +1,22 @@
 import { getSectorProps } from '../styleManager';
+
 const definition = {
   model: {
     defaults: {
       tagName: 'div',
-      draggable: false,
-      droppable: true,
-      removable: false,
+      name: 'Icons Container',
       unstylable: getSectorProps('basicText'),
-      classes: 'builder-container',
-    },
-  },
-  view: {
-    onRender: ({ el }) => {
-      el.style.minHeight = '100%';
+      classes: 'icons',
+      traits: [{
+        type: 'checkbox',
+        name: 'mobile-2',
+        label: 'Force 2 columns on mobile'
+      }]
     },
   },
 };
 
 export default {
-  name: 'container',
+  name: 'icons-container',
   definition,
 };

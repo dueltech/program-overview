@@ -5,9 +5,7 @@ const definition = {
   category: { id: 'advanced', label: 'Advanced' },
   content: {
     name: 'Icons Container',
-    tagName: 'div',
-    unstylable: getSectorProps('basicText'),
-    classes: 'icons',
+    type: 'icons-container',
   },
 };
 
