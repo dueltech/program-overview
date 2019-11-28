@@ -1,3 +1,5 @@
+import { getFonts, setFonts } from './fontManager';
+
 export default [
   {
     id: 'layers',
@@ -33,6 +35,12 @@ export default [
       label: 'Traits',
       command: 'show-traits',
       togglable: false,
+    }, {
+      id: 'show-fonts',
+      active: true,
+      label: 'Fonts',
+      command: 'show-fonts',
+      togglable: false,
     }],
   },
   {
@@ -50,10 +58,10 @@ export default [
         label: '<u>B</u>',
         command: 'sw-visibility', // Built-in command
       }, {
-        id: 'export-html',
+        id: 'export-zip',
         className: 'btn-open-export',
-        label: 'Export (HTML)',
-        command: 'export-template',
+        label: 'Export (Zip)',
+        command: 'gjs-export-zip',
         context: 'export-template',
       }, {
         id: 'export-json',
@@ -64,6 +72,7 @@ export default [
           const exported = {
             components: editor.getComponents(),
             style: editor.getStyle(),
+            fonts: getFonts(),
           };
           editor.Modal.setTitle('Export JSON')
             .setContent(`<textarea style="width:100%; height: 250px;">${JSON.stringify(exported)}</textarea>`)
@@ -85,6 +94,7 @@ export default [
             const importObj = JSON.parse(textarea.value);
             editor.setComponents(importObj.components);
             editor.setStyle(importObj.style);
+            setFonts(editor, importObj.fonts);
             editor.Modal.close();
           });
           wrapper.appendChild(importButton);

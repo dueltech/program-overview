@@ -1,3 +1,5 @@
+import { addFont, Font } from './fontManager';
+
 export default [
   {
     id: 'show-layers',
@@ -31,11 +33,43 @@ export default [
       const row = editor.getContainer().closest('.editor-row');
       return row.querySelector('.traits-container');
     },
-    run(editor, sender) {
+    run(editor) {
       this.getTraitsEl(editor).style.display = '';
     },
-    stop(editor, sender) {
+    stop(editor) {
       this.getTraitsEl(editor).style.display = 'none';
+    },
+  },
+  {
+    id: 'show-fonts',
+    getFontsEl(editor) {
+      const row = editor.getContainer().closest('.editor-row');
+      return row.querySelector('.fonts-container');
+    },
+    run(editor) {
+      this.getFontsEl(editor).style.display = '';
+    },
+    stop(editor) {
+      this.getFontsEl(editor).style.display = 'none';
+    },
+  },
+  {
+    id: 'add-font',
+    run(editor) {
+      const fontHref = document.getElementById('font-href') as HTMLInputElement;
+      const fontName = document.getElementById('font-name') as HTMLInputElement;
+      const fontDeclaration = document.getElementById('font-declaration') as HTMLInputElement;
+      if (fontHref.value && fontName.value && fontDeclaration.value) {
+        const font: Font = {
+          href: fontHref.value,
+          name: fontName.value,
+          declaration: fontDeclaration.value,
+        };
+        addFont(editor, font);
+        fontHref.value = '';
+        fontName.value = '';
+        fontDeclaration.value = '';
+      }
     },
   },
 ];
