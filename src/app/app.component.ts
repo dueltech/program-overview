@@ -17,10 +17,9 @@ import { loadFonts } from './builder/fontManager';
 })
 export class AppComponent implements OnInit {
   title = 'ng-portal-builder';
-  editor;
 
   ngOnInit() {
-    this.editor = grapesjs.init({
+    const editor = grapesjs.init({
       container: '#gjs',
       components: '<div data-gjs-type="container"></div>',
       height: '100%',
@@ -56,9 +55,11 @@ export class AppComponent implements OnInit {
       },
       plugins: [componentTypes, exportPlugin],
     });
-    this.editor.DomComponents.getWrapper().set({ badgable: false, selectable: false, hoverable: false });
-    this.editor.Canvas.getBody().insertAdjacentHTML('afterbegin', `<style>${styles}</style>`);
-    addBlocks(this.editor);
-    loadFonts(this.editor);
+    editor.on('load', () => {
+      editor.DomComponents.getWrapper().set({ badgable: false, selectable: false, hoverable: false });
+      editor.Canvas.getBody().insertAdjacentHTML('afterbegin', `<style>${styles}</style>`);
+      addBlocks(editor);
+      loadFonts(editor);
+    });
   }
 }
