@@ -1,7 +1,7 @@
 const sectors = [{
   id: 'basicText',
   name: 'Basic Text',
-  buildProps: ['color', 'font-size', 'font-family', 'text-align', 'line-height', 'letter-spacing'],
+  buildProps: ['color', 'font-size', 'font-family', 'text-align', 'line-height', 'letter-spacing', 'font-weight', 'text-transform'],
 }, {
   id: 'decorations',
   name: 'Decorations',
@@ -9,7 +9,7 @@ const sectors = [{
 }, {
   id: 'dimensions',
   name: 'Dimensions',
-  buildProps: ['width', 'height', 'margin', 'padding', 'box-sizing'],
+  buildProps: ['width', 'height', 'max-width', 'max-height', 'margin', 'padding', 'box-sizing'],
 }];
 
 export const getSectorProps = (sectorId: string) => {

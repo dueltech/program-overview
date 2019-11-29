@@ -8,7 +8,6 @@ const definition = {
       tagName: 'h2',
       name: 'Title',
       editable: true,
-      unstylable: getSectorProps('decorations'),
     },
   },
 };

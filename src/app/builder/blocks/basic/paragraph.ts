@@ -1,11 +1,8 @@
-import { getSectorProps } from '../../styleManager';
-
 const definition = {
   label: 'Paragraph',
   category: { id: 'basic', label: 'Basic' },
   content: {
     name: 'Paragraph',
-    unstylable: getSectorProps('decorations'),
     tagName: 'p',
     editable: true,
     type: 'text',

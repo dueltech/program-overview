@@ -47,6 +47,9 @@ export class AppComponent implements OnInit {
             widthMedia: '480px', // this value will be used in CSS @media
         }]
       },
+      selectorManager: {
+        appendTo: '.traits-container'
+      },
       styleManager,
       traitManager: {
         appendTo: '.traits-container',
