@@ -1,6 +1,3 @@
-import { getFonts, setFonts, resetFonts } from './fontManager';
-import styles from './styles';
-
 export default [
   {
     id: 'layers',
@@ -69,52 +66,21 @@ export default [
         className: 'btn-open-export',
         label: 'Export (JSON)',
         context: 'export-template',
-        command(editor) {
-          const exported = {
-            components: editor.getComponents(),
-            style: editor.getStyle(),
-            fonts: getFonts(),
-          };
-          editor.Modal.setTitle('Export JSON')
-            .setContent(`<textarea style="width:100%; height: 250px;">${JSON.stringify(exported)}</textarea>`)
-            .open();
-        },
+        command: 'export-json',
       },
       {
         id: 'import-json',
         className: 'btn-open-import',
         label: 'Import',
         context: 'import-json',
-        command(editor) {
-          const wrapper = document.createElement('div');
-          wrapper.innerHTML = '<textarea id="import-json" style="width:100%; height: 250px;"></textarea>';
-          const importButton = document.createElement('button');
-          importButton.innerText = 'Import';
-          importButton.addEventListener('click', () => {
-            const textarea = document.getElementById('import-json') as HTMLTextAreaElement;
-            const importObj = JSON.parse(textarea.value);
-            editor.setComponents(importObj.components);
-            editor.setStyle(importObj.style);
-            setFonts(editor, importObj.fonts);
-            editor.Modal.close();
-          });
-          wrapper.appendChild(importButton);
-          editor.Modal.setTitle('Import JSON')
-            .setContent(wrapper)
-            .open();
-        },
+        command: 'import-json',
       },
       {
         id: 'clear-canvas',
         className: 'clear-canvas',
         label: 'Clear Canvas',
         context: 'clear-canvas',
-        command(editor) {
-          editor.Commands.run('core:canvas-clear');
-          resetFonts(editor);
-          editor.setComponents(editor.getConfig().components);
-          editor.setStyle(styles);
-        }
+        command: 'clear-canvas',
       }
     ],
   },
