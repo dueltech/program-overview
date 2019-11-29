@@ -55,6 +55,13 @@
   position: relative;
   overflow-y: auto;
 }
+.panel__right > div {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
 
 .panel__switcher {
   position: initial;
