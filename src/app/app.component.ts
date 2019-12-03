@@ -7,6 +7,7 @@ import commands from './builder/commands';
 import styleManager from './builder/styleManager';
 import addBlocks from './builder/blocks';
 import styles from './builder/styles';
+import canvasCss from './builder/canvasCss';
 import { loadFonts } from './builder/fontManager';
 
 @Component({
@@ -24,6 +25,7 @@ export class AppComponent implements OnInit {
       components: '<div data-gjs-type="container"></div>',
       height: '100%',
       width: 'auto',
+      canvasCss,
       panels: {
         defaults: panels,
       },

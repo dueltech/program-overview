@@ -1,8 +1,3 @@
-export const cellToolbar = [
-  { attributes: { class: 'fa fa-arrow-down' }, command: 'new-row' },
-  { attributes: { class: 'fa fa-arrow-right' }, command: 'new-column' },
-];
-
 export const createCol = (head: boolean = false) => ({
   tagName: head ? 'th' : 'td',
   type: 'cell',
