@@ -43,7 +43,7 @@ export class AppComponent implements OnInit {
           }, {
             name: 'Mobile',
             width: '375px', // this value will be used on canvas width
-            widthMedia: '480px', // this value will be used in CSS @media
+            widthMedia: '450px', // this value will be used in CSS @media
         }]
       },
       selectorManager: {

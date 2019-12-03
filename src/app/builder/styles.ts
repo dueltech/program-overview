@@ -60,6 +60,31 @@ img {
   margin: 1.5rem;
   width: 7.25rem;
 }
+
+table, th, td {
+  border-collapse: collapse;
+}
+th, td {
+  margin: 0;
+  border: 1px solid;
+  padding: 1.5rem 1rem;
+  font-size: 11pt;
+  text-align: center;
+}
+th {
+  text-transform: uppercase;
+}
+td {
+  font-weight: 500;
+}
+th:first-child, td:first-child {
+  text-align: left;
+}
+table .icon-checkmark {
+  color: #57b358;
+  font-size: 1.5rem;
+}
+
 @media only screen and (max-width: 600px) {
   .icons[mobile-2] {
     justify-content: space-around;
@@ -85,6 +110,13 @@ img {
   }
 }
 @media only screen and (max-width: 450px) {
+  th, td {
+    padding: 0.75rem;
+    font-size: 9pt;
+  }
+  th {
+    min-width: auto;
+  }
   .icons > * {
     width: 6.25rem;
     margin: 0.25rem;
