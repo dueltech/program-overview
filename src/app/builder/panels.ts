@@ -51,36 +51,42 @@ export default [
     buttons: [
       {
         id: 'visibility',
-        active: true, // active by default
-        className: 'btn-toggle-borders',
-        label: '<u>B</u>',
-        command: 'sw-visibility', // Built-in command
+        active: true,
+        className: 'fa fa-square-o',
+        command: 'sw-visibility',
+        attributes: { title: 'View borders' },
+      }, {
+        id: 'undo',
+        className: 'fa fa-undo',
+        command: 'core:undo',
+        attributes: { title: 'Undo' },
+      }, {
+        id: 'redo',
+        className: 'fa fa-repeat',
+        command: 'core:redo',
+        attributes: { title: 'Redo' },
       }, {
         id: 'export-zip',
-        className: 'btn-open-export',
-        label: 'Export (Zip)',
+        className: 'fa fa-code',
         command: 'gjs-export-zip',
-        context: 'export-template',
+        attributes: { title: 'Export code (as zip)' },
       }, {
         id: 'export-json',
-        className: 'btn-open-export',
-        label: 'Export (JSON)',
-        context: 'export-template',
+        className: 'fa fa-download',
         command: 'export-json',
+        attributes: { title: 'Save JSON' },
       },
       {
         id: 'import-json',
-        className: 'btn-open-import',
-        label: 'Import',
-        context: 'import-json',
+        className: 'fa fa-upload',
         command: 'import-json',
+        attributes: { title: 'Import JSON' },
       },
       {
         id: 'clear-canvas',
-        className: 'clear-canvas',
-        label: 'Clear Canvas',
-        context: 'clear-canvas',
+        className: 'fa fa-trash',
         command: 'clear-canvas',
+        attributes: { title: 'Clear Canvas' },
       }
     ],
   },
@@ -89,15 +95,17 @@ export default [
     el: '.panel__devices',
     buttons: [{
       id: 'device-desktop',
-      label: 'D',
       command: 'set-device-desktop',
+      className: 'fa fa-desktop',
       active: true,
       togglable: false,
+      attributes: { title: 'Desktop' },
     }, {
       id: 'device-mobile',
-      label: 'M',
       command: 'set-device-mobile',
+      className: 'fa fa-mobile',
       togglable: false,
+      attributes: { title: 'Mobile' },
     }],
   }
 ];
