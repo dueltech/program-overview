@@ -34,9 +34,16 @@ header h2 {
   letter-spacing: 10px;
   font-size: 48px;
 }
-a.button {
+a {
   display: inline-block;
-  margin: 1.5rem 0;
+  text-decoration: none;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+.button {
+  display: inline-block;
   padding: 1rem 3rem;
   background: #666;
   color: white;
