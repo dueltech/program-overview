@@ -22,7 +22,7 @@ h2 {
 }
 header {
   width: 100%;
-  min-height: 450px;
+  min-height: 400px;
   padding: 0 1.5rem;
   display: flex;
   flex-direction: column;
@@ -34,7 +34,7 @@ header h2 {
   letter-spacing: 10px;
   font-size: 48px;
 }
-a {
+a.button {
   display: inline-block;
   margin: 1.5rem 0;
   padding: 1rem 3rem;
@@ -44,6 +44,7 @@ a {
   letter-spacing: 1px;
   text-decoration: none;
   font-size: 14px;
+  cursor: pointer;
 }
 img {
   max-width: 100%;
@@ -110,6 +111,9 @@ table .icon-checkmark {
   }
 }
 @media only screen and (max-width: 450px) {
+  header {
+    min-height: auto;
+  }
   th, td {
     padding: 0.75rem;
     font-size: 9pt;
@@ -120,6 +124,9 @@ table .icon-checkmark {
   .icons > * {
     width: 6.25rem;
     margin: 0.25rem;
+  }
+  .icons[mobile-2] > * {
+    width: 7.25rem;
   }
 }
 `;

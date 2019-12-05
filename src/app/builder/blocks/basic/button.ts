@@ -5,6 +5,7 @@ const definition = {
     name: 'Button',
     tagName: 'a',
     type: 'link',
+    classes: 'button',
     editable: true,
     components: [{
       type: 'textnode',
