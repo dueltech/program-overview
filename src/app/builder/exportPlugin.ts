@@ -12,7 +12,16 @@ const html = (body: string) => `
   <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-${body}
+  ${body}
+  <script>
+    /* DUEL embed snippet */
+    function emitHeight() {
+      parent.postMessage(document.documentElement.offsetHeight, '*');
+    }
+    addEventListener('DOMContentLoaded', emitHeight);
+    addEventListener('load', emitHeight);
+    addEventListener('resize', emitHeight);
+  </script>
 </body>
 `;
 
