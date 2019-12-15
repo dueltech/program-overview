@@ -12,7 +12,7 @@ const definition = {
   },
   view: {
     onRender: ({ el }) => {
-      el.style.minHeight = '100%';
+      el.style.minHeight = '100vh';
     },
   },
 };
