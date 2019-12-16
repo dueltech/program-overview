@@ -30,7 +30,8 @@ function removeFont(editor, font: Font) {
 }
 
 function setDefaultFont(editor, fontDeclaration: string) {
-  editor.CssComposer.setRule('body', { 'font-family': fontDeclaration });
+  const style = fontDeclaration ? { 'font-family': fontDeclaration } : {};
+  editor.CssComposer.setRule('body', style);
 }
 
 export function resetFonts(editor) {
@@ -55,7 +56,6 @@ function createFontEl(editor, font: Font) {
 }
 
 function updateDefaultFontSelect(editor) {
-  console.log('update it');
   const selectEl = document.getElementById('default-font') as HTMLSelectElement;
   const fontProperty = editor.StyleManager.getProperty('basicText', 'font-family');
   const availableFonts = fontProperty.attributes.list;
