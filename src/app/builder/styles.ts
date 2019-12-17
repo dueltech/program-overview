@@ -1,7 +1,7 @@
 export default `
 .builder-container {
   width: 100%;
-  max-width: 800px;
+  max-width: 730px;
   margin: 0 auto;
 }
 section {
