@@ -20,4 +20,5 @@ export const getSectorProps = (sectorId: string) => {
 export default {
   appendTo: '.styles-container',
   sectors,
+  clearProperties: 1,
 };
