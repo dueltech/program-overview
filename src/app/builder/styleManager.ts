@@ -10,6 +10,12 @@ const sectors = [{
   id: 'dimensions',
   name: 'Dimensions',
   buildProps: ['width', 'height', 'max-width', 'max-height', 'margin', 'padding', 'box-sizing'],
+}, {
+  id: 'layout',
+  name: 'Layout',
+  buildProps: ['display', 'justify-content', 'align-items', 'flex-direction', 'flex-wrap', 'flex-grow', 'top', 'bottom', 'left', 'right'],
+  // buildProps: ['display', 'justify-content', 'align-items', 'flex-direction', 'flex-wrap', 'top', 'bottom', 'left', 'right'],
+  open: false,
 }];
 
 export const getSectorProps = (sectorId: string) => {
