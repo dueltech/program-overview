@@ -51,6 +51,10 @@ export class AppComponent implements OnInit {
       selectorManager: {
         appendTo: '.traits-container'
       },
+      assetManager: {
+        upload: false,
+        embedAsBase64: 0,
+      },
       styleManager,
       traitManager: {
         appendTo: '.traits-container',
