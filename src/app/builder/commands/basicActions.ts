@@ -5,7 +5,7 @@ export default [
   {
     id: 'get-custom-css',
     run() {
-      return localStorage.getItem('custom-css');
+      return localStorage.getItem('custom-css') || '';
     }
   },
   {
