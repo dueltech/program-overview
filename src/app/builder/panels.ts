@@ -66,6 +66,11 @@ export default [
         command: 'core:redo',
         attributes: { title: 'Redo' },
       }, {
+        id: 'custom-css',
+        className: 'fa fa-hashtag',
+        command: 'custom-css-modal',
+        attributes: { title: 'Edit custom CSS' },
+      }, {
         id: 'export-zip',
         className: 'fa fa-code',
         command: 'gjs-export-zip',

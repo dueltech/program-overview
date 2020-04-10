@@ -3,12 +3,47 @@ import styles from '../styles';
 
 export default [
   {
+    id: 'get-custom-css',
+    run() {
+      return localStorage.getItem('custom-css');
+    }
+  },
+  {
+    id: 'set-custom-css',
+    run(editor, sender, options: {value: string}) {
+      const val = options.value || '';
+      localStorage.setItem('custom-css', val);
+      editor.Canvas.getBody().querySelector('#custom-styles').innerHTML = val;
+    }
+  },
+  {
+    id: 'custom-css-modal',
+    run(editor) {
+      const customCss = editor.runCommand('get-custom-css');
+      editor.Modal.setTitle('Custom CSS')
+        .setContent(`
+        <textarea style="width:100%; height: 250px;">${customCss}</textarea>
+        <button>Save</button>
+        `)
+        .open();
+      const contentEl = editor.Modal.getContentEl();
+      const textarea = contentEl.querySelector('textarea');
+      const button = contentEl.querySelector('button');
+      button.addEventListener('click', () => {
+        editor.runCommand('set-custom-css', {value: textarea.value});
+        editor.Modal.close();
+      });
+    }
+  },
+  {
     id: 'export-json',
     run(editor) {
+      const customCss = editor.runCommand('get-custom-css');
       const exported = {
         components: editor.getComponents(),
         style: editor.getStyle(),
         fonts: getFonts(),
+        customCss,
       };
       const jsonContent = JSON.stringify(exported);
       const fileHref = `data:'text/json;charset=utf-8,${encodeURIComponent(jsonContent)}`;
@@ -27,6 +62,7 @@ export default [
       editor.setComponents(importObj.components);
       editor.setStyle(importObj.style);
       setFonts(editor, importObj.fonts);
+      editor.runCommand('set-custom-css', {value: importObj.customCss});
       editor.Modal.close();
     },
     run(editor) {
@@ -66,7 +102,8 @@ export default [
       editor.Commands.run('core:canvas-clear');
       resetFonts(editor);
       editor.setComponents(editor.getConfig().components);
-      editor.setStyle(styles);
+      editor.setStyle('');
+      editor.runCommand('set-custom-css', {value: ''});
     }
   }
 ];

@@ -64,6 +64,9 @@ export class AppComponent implements OnInit {
     editor.on('load', () => {
       editor.DomComponents.getWrapper().set({ badgable: false, selectable: false, hoverable: false });
       editor.Canvas.getBody().insertAdjacentHTML('afterbegin', `<style>${styles}</style>`);
+      editor.Canvas.getBody().insertAdjacentHTML('beforeend', `
+      <style id="custom-styles">${editor.runCommand('get-custom-css')}</style>
+      `);
       addBlocks(editor);
       loadFonts(editor);
     });

@@ -29,7 +29,7 @@ const options = {
   filename: () => 'program-overview.zip',
   root: {
     css: {
-      'style.css': ed => getFontImports() + styles + ed.getCss(),
+      'style.css': ed => getFontImports() + styles + ed.getCss() + ed.runCommand('get-custom-css'),
     },
     'index.html': ed => html(ed.getHtml()),
   }
