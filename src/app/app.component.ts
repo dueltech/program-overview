@@ -67,6 +67,11 @@ export class AppComponent implements OnInit {
       editor.Canvas.getBody().insertAdjacentHTML('beforeend', `
       <style id="custom-styles">${editor.runCommand('get-custom-css')}</style>
       `);
+      editor.RichTextEditor.add('unorderedList', {
+        icon: 'ul',
+        attributes: { title: 'List', type: 'ul' },
+        result: rte => rte.exec('insertUnorderedList'),
+      });
       addBlocks(editor);
       loadFonts(editor);
     });
