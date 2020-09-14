@@ -58,7 +58,8 @@ export default [
   {
     id: 'import-json',
     importJson(editor, jsonData: string) {
-      const importObj = JSON.parse(jsonData);
+      // Fix broken JSON configs, for some reason p elements aren't handled correctly
+      const importObj = JSON.parse(jsonData.replace(/"tagName":\s?"p"/gi, '"tagName":"div"'));
       editor.setComponents(importObj.components);
       editor.setStyle(importObj.style);
       setFonts(editor, importObj.fonts);
