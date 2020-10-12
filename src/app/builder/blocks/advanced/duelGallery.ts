@@ -1,13 +1,13 @@
 const definition = {
-  label: 'Icons Container',
+  label: 'Duel Gallery',
   category: { id: 'advanced', label: 'Advanced' },
   content: {
-    name: 'Icons Container',
-    type: 'icons-container',
+    name: 'Duel Gallery',
+    type: 'duel-gallery-container',
   },
 };
 
 export default {
-  name: 'iconsContainer',
+  name: 'duelGallery',
   definition,
 };

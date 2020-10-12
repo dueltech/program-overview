@@ -1,13 +1,18 @@
 import Container from './container';
+import DuelGalleryContainer from './duelGalleryContainer';
 import IconsContainer from './iconsContainer';
 import TableCell, { onSelect, onDeselect } from './tableCell';
 import Title from './title';
 
-const types = [Container, IconsContainer, TableCell, Title];
+const types = [Container, DuelGalleryContainer, IconsContainer, TableCell, Title];
 
 export default (editor) => {
   types.forEach(({ name, definition }) => {
-    editor.DomComponents.addType(name, definition);
+    if (definition instanceof Function) {
+      editor.DomComponents.addType(name, definition(editor));
+    } else {
+      editor.DomComponents.addType(name, definition);
+    }
   });
   editor.on('component:selected', (model) => {
     if (model.attributes && model.attributes.type === 'cell') {

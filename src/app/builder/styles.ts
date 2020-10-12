@@ -69,6 +69,10 @@ img {
   width: 7.25rem;
 }
 
+.duel-gallery-container {
+  width: 100%;
+}
+
 table, th, td {
   border-collapse: collapse;
 }
