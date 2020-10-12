@@ -71,6 +71,11 @@ export default [
         command: 'custom-css-modal',
         attributes: { title: 'Edit custom CSS' },
       }, {
+        id: 'custom-scripts',
+        label: 'JS',
+        command: 'custom-scripts-modal',
+        attributes: { title: 'Edit custom scripts' },
+      }, {
         id: 'export-zip',
         className: 'fa fa-code',
         command: 'gjs-export-zip',

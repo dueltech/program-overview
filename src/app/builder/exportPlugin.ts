@@ -31,7 +31,7 @@ const options = {
     css: {
       'style.css': ed => getFontImports() + styles + ed.getCss() + ed.runCommand('get-custom-css'),
     },
-    'index.html': ed => html(ed.getHtml()),
+    'index.html': ed => html(`${ed.getHtml()}\n${ed.runCommand('get-custom-scripts')}`),
   }
 };
 

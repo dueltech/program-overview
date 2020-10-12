@@ -1,28 +1,33 @@
 import { getFonts, setFonts, resetFonts } from '../fontManager';
 import styles from '../styles';
 
-export default [
+const customTextCommands = (name: string, container: string, title: string) => [
   {
-    id: 'get-custom-css',
+    id: `get-${name}`,
     run() {
-      return localStorage.getItem('custom-css') || '';
+      return localStorage.getItem(name) || '';
     }
   },
   {
-    id: 'set-custom-css',
+    id: `set-${name}`,
     run(editor, sender, options: {value: string}) {
       const val = options.value || '';
-      localStorage.setItem('custom-css', val);
-      editor.Canvas.getBody().querySelector('#custom-styles').innerHTML = val;
+      localStorage.setItem(name, val);
+      if (container === '#custom-scripts') {
+        const head = editor.Canvas.getDocument().head;
+        head.insertAdjacentHTML('beforeend', val);
+      } else {
+        editor.Canvas.getBody().querySelector(container).innerHTML = val;
+      }
     }
   },
   {
-    id: 'custom-css-modal',
+    id: `${name}-modal`,
     run(editor) {
-      const customCss = editor.runCommand('get-custom-css');
-      editor.Modal.setTitle('Custom CSS')
+      const text = editor.runCommand(`get-${name}`);
+      editor.Modal.setTitle(title)
         .setContent(`
-        <textarea style="width:100%; height: 250px;">${customCss}</textarea>
+        <textarea style="width:100%; height: 250px;">${text}</textarea>
         <button>Save</button>
         `)
         .open();
@@ -30,20 +35,27 @@ export default [
       const textarea = contentEl.querySelector('textarea');
       const button = contentEl.querySelector('button');
       button.addEventListener('click', () => {
-        editor.runCommand('set-custom-css', {value: textarea.value});
+        editor.runCommand(`set-${name}`, {value: textarea.value});
         editor.Modal.close();
       });
     }
   },
+];
+
+export default [
+  ...customTextCommands('custom-css', '#custom-styles', 'Custom CSS'),
+  ...customTextCommands('custom-scripts', '#custom-scripts', 'Custom Scripts'),
   {
     id: 'export-json',
     run(editor) {
       const customCss = editor.runCommand('get-custom-css');
+      const customScripts = editor.runCommand('get-custom-scripts');
       const exported = {
         components: editor.getComponents(),
         style: editor.getStyle(),
         fonts: getFonts(),
         customCss,
+        customScripts,
       };
       const jsonContent = JSON.stringify(exported);
       const fileHref = `data:'text/json;charset=utf-8,${encodeURIComponent(jsonContent)}`;
@@ -64,6 +76,7 @@ export default [
       editor.setStyle(importObj.style);
       setFonts(editor, importObj.fonts);
       editor.runCommand('set-custom-css', {value: importObj.customCss});
+      editor.runCommand('set-custom-scripts', {value: importObj.customScripts});
       editor.Modal.close();
     },
     run(editor) {
@@ -105,6 +118,7 @@ export default [
       editor.setComponents(editor.getConfig().components);
       editor.setStyle('');
       editor.runCommand('set-custom-css', {value: ''});
+      editor.runCommand('set-custom-scripts', {value: ''});
     }
   }
 ];
