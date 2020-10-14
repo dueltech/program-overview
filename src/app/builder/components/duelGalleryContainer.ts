@@ -24,7 +24,7 @@ const definition = (editor) => ({
       content: `
         <div id="duelvision-component" style="width: 100%;"></div>
       `,
-      script: function() {
+      script: `
         const config = '{[ galleryConfig ]}';
         this.querySelector('#duelvision-component').innerHTML = '';
         if (config) {
@@ -48,17 +48,16 @@ const definition = (editor) => ({
           } catch (error) {
             console.error('Failed loading Duel gallery');
           }
-        }
-      },
+        }`,
     },
   },
   view: {
     init() {
       this.listenTo(this.model, 'change:galleryConfig', () => {
-        this.updateScript();
         const component = editor.getSelected();
         const galleryConfig = component.getTrait('galleryConfig').props().value;
         component.setAttributes({ galleryConfig });
+        this.updateScript();
       });
     },
     onRender: ({ el }) => {
